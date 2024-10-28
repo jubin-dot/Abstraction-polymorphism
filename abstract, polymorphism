@@ -1,0 +1,112 @@
+// Domenstration of polymorphism
+abstract class Bike {
+  void ride(); // Abstract method
+}
+
+// Concrete class: MountainBike
+class MountainBike extends Bike {
+  @override
+  void ride() {
+    print("Riding a mountain bike on rough terrain.");
+  }
+}
+
+// Concrete class: RoadBike
+class RoadBike extends Bike {
+  @override
+  void ride() {
+    print("Riding a road bike on smooth pavement.");
+  }
+}
+
+// Concrete class: ElectricBike
+class ElectricBike extends Bike {
+  @override
+  void ride() {
+    print("Riding an electric bike effortlessly.");
+  }
+}
+
+void main() {
+  // List of bikes
+  List<Bike> bikes = [
+    MountainBike(),
+    RoadBike(),
+    ElectricBike(),
+  ];
+
+  // Loop through each bike and call the ride method
+  for (var bike in bikes) {
+    bike.ride();
+  }
+}
+// Domenstration of Abstract 
+// Abstract class
+abstract class Shape {
+  double area(); // Abstract method
+}
+
+// Concrete class: Rectangle
+class Rectangle extends Shape {
+  final double width;
+  final double height;
+
+  Rectangle(this.width, this.height);
+
+  @override
+  double area() {
+    return width * height;//Area calculation
+  }
+}
+
+void main() {
+  Shape myRectangle = Rectangle(10,4);
+  print('Area of Rectangle: ${myRectangle.area()}');
+}
+// Interface
+abstract class Vehicle {
+  void drive(); // Abstract method
+}
+
+// Concrete class: Car
+class Car implements Vehicle {
+  @override
+  void drive() {
+    print("Car is driving.");
+  }
+}
+
+// Concrete class: Bicycle
+class Bicycle implements Vehicle {
+  @override
+  void drive() {
+    print("Bicycle is pedaling.");
+  }
+}
+
+void main() {
+  Vehicle myCar = Car();
+  Vehicle myBike = Bicycle();
+
+  myCar.drive();  
+  myBike.drive(); 
+}
+// Mixin
+mixin Flyable {
+  void fly() {
+    print("Flying!");
+  }
+}
+
+// Class: Bird
+class Bird with Flyable {
+  void sing() {
+    print("Singing!");
+  }
+}
+
+void main() {
+  Bird myBird = Bird();
+  myBird.fly();  
+  myBird.sing(); 
+}
